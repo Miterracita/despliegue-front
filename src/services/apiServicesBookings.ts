@@ -1,13 +1,13 @@
 // url producción
-// const API_URL = "http://localhost:5000";
+const API_URL = "https://proyecto-final-back-sigma.vercel.app";
 
 // url local
-const LOCAL_URL = "http://localhost:3000";
+// const LOCAL_URL = "http://localhost:3000";
 
 //ver todos las reservas
 export const getUsers = async () => {
   try {
-      const response = await fetch(`${LOCAL_URL}/users/users-list`);
+      const response = await fetch(`${API_URL}/users/users-list`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -22,7 +22,7 @@ export const getUsers = async () => {
 //ELIMINAR reserva
 export const deleteUser = async (id: any) => {
   try {
-    const response = await fetch(`${LOCAL_URL}/users/${id}`, {
+    const response = await fetch(`${API_URL}/users/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -39,7 +39,7 @@ export const deleteUser = async (id: any) => {
 // actualizar una reserva (por ID)
 export const updateUser = async (id: any, userData: any) => {
   try {
-    const response = await fetch(`${LOCAL_URL}/users/${id}`, {
+    const response = await fetch(`${API_URL}/users/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

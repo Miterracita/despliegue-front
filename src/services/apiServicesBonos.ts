@@ -1,8 +1,8 @@
 // url producción
-// const API_URL = "http://localhost:5000";
+const API_URL = "https://proyecto-final-back-sigma.vercel.app";
 
 // url local
-const LOCAL_URL = "http://localhost:3000";
+// const LOCAL_URL = "http://localhost:3000";
 
 
 // nuevo bono
@@ -16,7 +16,7 @@ export const newBono = async (data:any) => {
   };
 
   try {
-    const response = await fetch(`${LOCAL_URL}/bonos/new-bono`, opciones);
+    const response = await fetch(`${API_URL}/bonos/new-bono`, opciones);
     if (!response.ok) {
       throw new Error("Error al crear el bono");
     }
@@ -31,7 +31,7 @@ export const newBono = async (data:any) => {
 //ver todos los bonos
 export const getBono = async () => {
   try {
-      const response = await fetch(`${LOCAL_URL}/bonos/bono-list`);
+      const response = await fetch(`${API_URL}/bonos/bono-list`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -46,7 +46,7 @@ export const getBono = async () => {
 // actualizar un bono (por ID)
 export const updateBono = async (id: any, userData: any) => {
   try {
-    const response = await fetch(`${LOCAL_URL}/bonos/${id}`, {
+    const response = await fetch(`${API_URL}/bonos/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export const updateBono = async (id: any, userData: any) => {
 export const deleteBono = async (id: any) => {
   console.log("Attempting to delete bono with ID:", id);
   try {
-    const response = await fetch(`${LOCAL_URL}/bonos/${id}`, {
+    const response = await fetch(`${API_URL}/bonos/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
@@ -99,7 +99,7 @@ export const getSearch = async (user: string, code: string) => {
           queryParams.append('code', code);
       }
 
-      const response = await fetch(`${LOCAL_URL}/bonos/search?${queryParams.toString()}`);
+      const response = await fetch(`${API_URL}/bonos/search?${queryParams.toString()}`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
